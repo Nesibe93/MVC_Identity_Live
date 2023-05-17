@@ -1,0 +1,26 @@
+﻿ASP.Net Core Identity
+
+1. Gerekli veritabanı frameworkleri yüklenir
+- EFCore
+- EFCore.Tools
+- EFCore.SqlServer
+
+2. Scaffolding : Uygulamanıza hazır yapıları yerleştiren bir mekanizma. Bunu sisteme yansıtabilmek için ayrıca şu paketinde yüklenmesi gerekir.
+- Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+3. Projemize Identity özelliğini kazandırmak için Scaffolding işlemini uyguluyoruz.
+(Login,Logout,Register sayfaları, DBContext, User sınıfını belirterek)
+
+4. _LoginPartial olarak yerleşen Login/Register işlemini yapacak olan partial view ı normal _Layout sayfasında görülecek şekilde ekliyoruz. 
+
+5. Login/Register seçeneklerini çalışır hale getirmek için Identity FW razor pages mantığında olduğundan dolayı ana Program.cs kısmına bunu tanımlamam gerekiyor.
+
+6.Hazır olan VT deki ASPNetUsers tablosuna 2 adet alan (FirstName,LastName) eklemek için AppUser classına bu eklemeleri yapıyoruz ve bunları AppDbContext sınıfı içine de tanımlıyoruz
+
+7. VT yi oluşturmadan önce gerekli bağlantı cümleciği oluşturuyorum.(appsettings.json)
+
+8.Migration işlemleri (add-migration,update-database)
+
+9. VT ye eklediğimiz bu alanları(FirstName,LastName) Register.cshtml.cs dosyasına tanımlayalım ekleyelim
+
+10. İşlemler öncesi Register.cshtml.cs dosyasındaki OnPostAsync metoduna tanımlamaların yapılması (modele ekrandan alınan bilgilerin aktarılması)
